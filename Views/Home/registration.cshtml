@@ -1,0 +1,30 @@
+@model User
+
+<form asp-action="registration" asp-controller="Home" method="post">
+    <div class="form-group">
+        <span class="text-danger font-weight-bold" asp-validation-for="fname"></span>
+        <label asp-for="fname"></label>
+        <input class="form-control" asp-for="fname">
+    </div>
+    <div class="form-group">
+        <span class="text-danger font-weight-bold" asp-validation-for="lname"></span>
+        <label asp-for="lname"></label>
+        <input class="form-control" asp-for="lname">
+    </div>
+    <div class="form-group">
+        <span class="text-danger font-weight-bold" asp-validation-for="username"></span>
+        <label asp-for="username"></label>
+        <input class="form-control" asp-for="username">
+    </div>
+    <div class="form-group">
+        <span class="text-danger font-weight-bold" asp-validation-for="password"></span>
+        <label asp-for="password"></label>
+        <input class="form-control" asp-for="password">
+    </div>
+    <div class="form-group">
+        <span class="text-danger font-weight-bold" asp-validation-for="cpassword"></span>
+        <label asp-for="cpassword"></label>
+        <input class="form-control" asp-for="cpassword">
+    </div>
+    <button class="btn btn-info">Sign Up Now!</button>
+</form>

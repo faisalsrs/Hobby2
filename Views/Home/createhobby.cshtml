@@ -1,0 +1,20 @@
+@model Hobby
+
+<p>@TempData["errors"]</p>
+
+<a asp-action="logout" asp-controller="Home">Logout</a>
+<a asp-action="success" asp-controller="Home">Hobbies</a>
+
+<form asp-action="addhobby" asp-controller="Home" method="post">
+    <div class="form-group">
+        <span class="text-danger font-weight-bold" asp-validation-for="Name"></span>
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name">
+    </div>
+    <div class="form-group">
+        <span class="text-danger font-weight-bold" asp-validation-for="Description"></span>
+        <label asp-for="Description"></label>
+        <textarea asp-for= "Description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button class="btn btn-info">Create!</button>
+</form>

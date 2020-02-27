@@ -1,0 +1,31 @@
+@model successModel
+
+<h1>Welcome @Model.userLogged.fname!</h1>
+
+
+
+<a asp-action="logout" asp-controller="Home">Logout</a>
+<a asp-action="createhobby" asp-controller="Home">Create a Hobby</a>
+
+<p>@TempData["errors"]</p>
+
+<h1> Hobbies</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Hobby ID</th>
+      <th scope="col">Name</th>
+      <th scope="col"># of Enthusiasts</th>
+    </tr>
+  </thead>
+  @foreach(var hob in Model.allH){
+    <tbody>
+        <tr>
+            <th scope="row">@hob.HobbyId</th>
+            <td><a asp-action="OneHobby" asp-route-HobbyId="@hob.HobbyId" asp-controller="Home">@hob.Name</a></td>
+            <td>@hob.CreatedJOINs.Count</td>
+        </tr>
+    </tbody>
+  }
+  </table>

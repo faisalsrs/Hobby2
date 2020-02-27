@@ -1,0 +1,27 @@
+@model Hobby
+
+<h1> @Model.Name</h1>
+<h3> @Model.Description</h3>
+
+<div>
+<p> @Model.Name Enthusiasts: </p>
+@foreach (JOIN join in @Model.CreatedJOINs){
+<ul>
+    @join.UserJOIN.fname @join.UserJOIN.lname
+</ul>
+
+<p> Become an Enthusiasts!</p>
+
+ @if(join.UserId ==  ViewBag.user){
+<a asp-action="edit" asp-route-HobbyId="@join.HobbyId" asp-controller="Home" class="btn btn-outline-info">Edit</a>
+
+ }
+}
+@if(@Model.CreatedJOINs.Any(p =>p.UserId == ViewBag.user)){
+
+}
+else{
+<form asp-action="join" asp-route-HobbyId="@Model.HobbyId" asp-controller="Home" method="Post"><button>Add to Hobbies</button></form>
+}
+
+</div>
